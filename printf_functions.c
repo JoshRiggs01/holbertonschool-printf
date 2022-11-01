@@ -12,29 +12,20 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
- * print_c - function
- * @c: char
- * Return: 1
+ *spec_c - prints char to stdout
+ *@c: char to print
+ *Return: # of chars printed
  */
-int print_c(va_list c)
+int spec_c(va_list c)
 {
-	int a = va_arg(c, int);
+	unsigned int count = 0;
 
-	_putchar(a);
-	return (1);
-}
+	if (!c)
+	{
+		return (0);
+	}
+	_putchar((char)va_arg(c, int));
+	count++;
 
-/**
- * print_s - function
- * @s: string
- * Return: number of characters
- */
-int print_s(va_list s)
-{
-	int count;
-	char *str = va_arg(s, char *)
-
-		for (count = 0; str[count]; count++)
-			_putchar(str[count]);
 	return (count);
 }
