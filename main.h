@@ -21,9 +21,9 @@ int print_di(va_list di);
  *
  *
  */
-typedef struct printfo
+typedef struct printformat
 {
 	char *type;
-	int (*c)(va_list);
+	int (*f)(va_list);
 } print_format;
 #endif

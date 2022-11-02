@@ -9,19 +9,19 @@
 int (*check(const char *format))(va_list)
 {
 	unsigned int j;
-	format_t f[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"d", print_int},
-		{"i", print_int},
+	print_format x[] = {
+		{"c", print_c},
+		{"s", print_s},
+		{"d", print_di},
+		{"i", print_di},
 		{NULL, NULL}
 	};
-	for (j = 0; f[j].type != NULL; j++)
+	for (j = 0; x[j].type != NULL; j++)
 	{
-		if (*(f[j].type) == *form)
+		if (*(x[j].type) == *format)
 			break;
 	}
-	return (f[j].f);
+	return (x[j].f);
 }
 /**
  * _printf - prints anything
@@ -33,14 +33,16 @@ int _printf(const char *format, ...)
 {
 	unsigned int x, count = 0;
 	va_list ap;
-	int (*c)(va_list);
+	int (*f)(va_list);
 
 	if (format == NULL)
 		return (-1);
+
+	va_start(ap, format);
 	x = 0;
 	while (format[x])
 	{
-		for (i = 1; format[x] != '%' && format[x]; x++)
+		for (i = 0; format[x] != '%' && format[x]; x++)
 		{
 			_putchar(format[x]);
 			count++;
@@ -48,9 +50,9 @@ int _printf(const char *format, ...)
 		if (!format[x])
 			return (count);
 		c = check(&format[x + 1]);
-		if (c != NULL)
+		if (f != NULL)
 		{
-			count += c(a);
+			count += c(ap);
 			x += 2;
 			continue;
 		}

@@ -1,5 +1,8 @@
 #include "main.h"
+<<<<<<< HEAD
 #include <unistd.h>
+=======
+>>>>>>> 119f94080d41ba9ff05c890e21ee367943eb4c89
 
 /**
  * _putchar - writes char c
@@ -21,30 +24,70 @@ int print_c(va_list c)
 {
 	unsigned int count = 0;
 
-	if (!c)
+	if (!count)
 	{
 		return (0);
 	}
-	_putchar((char)va_arg(c, int));
+	_putchar((char)va_arg(count, int));
 	count++;
 
 	return (count);
 }/**
   * print_s - prints strings
-  * @ap: va_list that holds arguments from main function
+  * @s: string to print
   * Return: number of characters printed
   */
-int print_s(va_list ap)
+int print_s(va_list s)
 {
-	char *str = va_arg(ap, char *);
-	int i;
+	unsigned int count;
+	char *str = va_arg(s, char *);
 
 	if (str == NULL)
 		str = "(null)";
-	else
+
+	for (count = 0; str[count]; count++)
+		_putchar(str[count]);
+	return (count);
+}
+/**
+ * print_di - print int/d to std out
+ * @di: int/d to print
+ * Return: length
+ */
+
+int print_di(va_list di)
+{
+	int count = 0, x = 0;
+	int v = va_arg(di, int), divide = 1;
+	char intm[11] = {"-2147483648"};
+
+	if (v == int_m)
 	{
-		for (i = 0; str[i]; i++)
-			_putchar(str[i]);
+		for (x = 0; x <= 10; x++)
+		{
+			_putchar(intm[x]);
+			count++;
+		}
+		return (count);
 	}
-	return (i);
+	if (val < 0)
+	{
+		_putchar('-');
+		val = -val;
+		count++;
+	}
+
+	while ((val / divide) >= 10)
+	{
+		divide *= 10;
+	}
+
+	while (divide >= 1)
+	{
+		_putchar((val / divide) + '0');
+		val = val % divide;
+		divide /= 10;
+		count++;
+	}
+	return (count);
 }
