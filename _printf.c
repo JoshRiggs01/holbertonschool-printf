@@ -19,7 +19,9 @@ int (*check(const char *format))(va_list)
 	for (j = 0; x[j].type != NULL; j++)
 	{
 		if (*(x[j].type) == *format)
+		{
 			break;
+		}
 	}
 	return (x[j].f);
 }
