@@ -1,5 +1,5 @@
 # Printf function
-### Authors: :sparkles: Josh Riggs :sparkles: & Kat Keas :sparkles:
+### Authors: :sparkles: Josh Riggs & Kat Keas :sparkles:
 
 ## Objectives:
 > Create a custom version of the standard library's `printf` function.
