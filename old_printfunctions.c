@@ -1,5 +1,3 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "main.h"
 <<<<<<< HEAD
 #include <unistd.h>
@@ -20,7 +18,7 @@ int _putchar(char c)
 /**
  *print_c - prints char to stdout
  *@c: char to print
- *Return: # of chars rinted
+ *Return: # of chars printed
  */
 int print_c(va_list c)
 {
@@ -34,17 +32,15 @@ int print_c(va_list c)
 	x++;
 
 	return (x);
-}
-/**
+}/**
   * print_s - prints strings
   * @s: string to print
   * Return: number of characters printed
   */
-int print_s(va_list s)
-
+int print_s(va_list ap)
 {
 	int count;
-	char *str = va_arg(s, char *);
+	char *str = va_arg(ap, char *);
 
 	if (str == NULL)
 	{
