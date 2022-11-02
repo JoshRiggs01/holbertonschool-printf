@@ -30,12 +30,14 @@ int print_c(va_list c)
 	x++;
 
 	return (x);
-}/**
+}
+/**
   * print_s - prints strings
   * @s: string to print
   * Return: number of characters printed
   */
 int print_s(va_list s)
+
 {
 	int count;
 	char *str = va_arg(s, char *);
