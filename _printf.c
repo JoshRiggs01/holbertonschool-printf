@@ -12,8 +12,8 @@ int (*check(const char *format))(va_list)
 	print_format x[] = {
 		{"c", print_c},
 		{"s", print_s},
-		{"d", print_di},
-		{"i", print_di},
+		{"d", print_id},
+		{"i", print_id},
 		{NULL, NULL}
 	};
 	for (j = 0; x[j].type != NULL; j++)

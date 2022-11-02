@@ -35,26 +35,30 @@ int print_c(va_list c)
   */
 int print_s(va_list s)
 {
-	unsigned int count;
+	int count;
 	char *str = va_arg(s, char *);
 
 	if (str == NULL)
+	{
 		str = "(null)";
+	}
 
 	for (count = 0; str[count]; count++)
+	{
 		_putchar(str[count]);
+	}
 	return (count);
 }
 /**
- * print_di - print int/d to std out
- * @di: int/d to print
+ * print_id - print int/d to std out
+ * @id: int/d to print
  * Return: length
  */
 
-int print_di(va_list di)
+int print_id(va_list id)
 {
 	int count = 0, x = 0;
-	int v = va_arg(di, int), divide = 1;
+	int v = va_arg(id, int), divide = 1;
 	char intm[11] = {"-2147483648"};
 
 	if (v == INT_MIN)
