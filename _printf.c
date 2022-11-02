@@ -32,7 +32,7 @@ int (*check(const char *format))(va_list)
 int _printf(const char *format, ...)
 {
 	unsigned int x, count = 0;
-	va_list a;
+	va_list ap;
 	int (*c)(va_list);
 
 	if (format == NULL)
@@ -59,6 +59,6 @@ int _printf(const char *format, ...)
 		else
 			x++;
 	}
-	va_end(a);
+	va_end(ap);
 	return (count);
 }
