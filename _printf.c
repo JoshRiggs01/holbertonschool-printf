@@ -49,10 +49,10 @@ int _printf(const char *format, ...)
 		}
 		if (!format[x])
 			return (count);
-		c = check(&format[x + 1]);
+		f = check(&format[x + 1]);
 		if (f != NULL)
 		{
-			count += c(ap);
+			count += f(ap);
 			x += 2;
 			continue;
 		}
