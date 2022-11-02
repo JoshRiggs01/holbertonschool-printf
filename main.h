@@ -13,12 +13,12 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_c(va_list c);
 int print_s(va_list ap);
-int print_di(va_list di);
+int print_id(va_list id);
 
 /**
- *
- *
- *
+ * struct printformmat - print type with print function
+ * @type: print type
+ * @f: associated function
  *
  */
 typedef struct printformat

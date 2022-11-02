@@ -11,15 +11,17 @@ int (*check(const char *format))(va_list)
 	unsigned int j;
 	print_format x[] = {
 		{"c", print_c},
-		{"s", print_s},
-		{"d", print_di},
-		{"i", print_di},
+		{"ap", print_s},
+		{"d", print_id},
+		{"i", print_id},
 		{NULL, NULL}
 	};
 	for (j = 0; x[j].type != NULL; j++)
 	{
 		if (*(x[j].type) == *format)
+		{
 			break;
+		}
 	}
 	return (x[j].f);
 }
@@ -42,17 +44,17 @@ int _printf(const char *format, ...)
 	x = 0;
 	while (format[x])
 	{
-		for (i = 0; format[x] != '%' && format[x]; x++)
+		for (x = 1; format[x] != '%' && format[x]; x++)
 		{
 			_putchar(format[x]);
 			count++;
 		}
 		if (!format[x])
 			return (count);
-		c = check(&format[x + 1]);
+		f = check(&format[x + 1]);
 		if (f != NULL)
 		{
-			count += c(ap);
+			count += f(ap);
 			x += 2;
 			continue;
 		}
