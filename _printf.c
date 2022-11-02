@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 	x = 0;
 	while (format[x])
 	{
-		for (i = 1; format[x] != '%' && format[x]; x++)
+		for (x = 1; format[x] != '%' && format[x]; x++)
 		{
 			_putchar(format[x]);
 			count++;
