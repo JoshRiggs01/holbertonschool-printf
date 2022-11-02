@@ -13,7 +13,7 @@ int (*check(const char *format))(va_list)
 		{"c", print_c},
 		{"s", print_s},
 		{"d", print_di},
-		{"i", print_id},
+		{"i", print_di},
 		{NULL, NULL}
 	};
 	for (j = 0; x[j].type != NULL; j++)
