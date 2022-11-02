@@ -1,10 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "main.h"
-<<<<<<< HEAD
-#include <unistd.h>
-=======
->>>>>>> 119f94080d41ba9ff05c890e21ee367943eb4c89
 
 /**
  * _putchar - writes char c
