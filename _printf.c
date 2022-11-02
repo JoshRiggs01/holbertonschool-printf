@@ -11,7 +11,7 @@ int (*check(const char *format))(va_list)
 	unsigned int j;
 	print_format x[] = {
 		{"c", print_c},
-		{"s", print_s},
+		{"ap", print_s},
 		{"d", print_id},
 		{"i", print_id},
 		{NULL, NULL}

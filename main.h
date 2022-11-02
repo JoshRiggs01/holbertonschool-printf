@@ -16,9 +16,9 @@ int print_s(va_list ap);
 int print_id(va_list id);
 
 /**
- *
- *
- *
+ * struct printformmat - print type with print function
+ * @type: print type
+ * @f: associated function
  *
  */
 typedef struct printformat

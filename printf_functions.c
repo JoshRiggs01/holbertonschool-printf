@@ -33,10 +33,10 @@ int print_c(va_list c)
   * @s: string to print
   * Return: number of characters printed
   */
-int print_s(va_list s)
+int print_s(va_list ap)
 {
 	int count;
-	char *str = va_arg(s, char *);
+	char *str = va_arg(ap, char *);
 
 	if (str == NULL)
 	{
@@ -84,7 +84,7 @@ int print_id(va_list id)
 
 	while (divide >= 1)
 	{
-		_putchar((v / divide) + '0');
+		_putchar((v / divide + '0'));
 		v = v % divide;
 		divide /= 10;
 		count++;
