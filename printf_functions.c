@@ -18,16 +18,16 @@ int _putchar(char c)
  */
 int print_c(va_list c)
 {
-	unsigned int count = 0;
+	unsigned int x = 0;
 
-	if (!count)
+	if (!c)
 	{
 		return (0);
 	}
-	_putchar((char)va_arg(count, int));
-	count++;
+	_putchar((char)va_arg(c, int));
+	x++;
 
-	return (count);
+	return (x);
 }/**
   * print_s - prints strings
   * @s: string to print
@@ -57,7 +57,7 @@ int print_di(va_list di)
 	int v = va_arg(di, int), divide = 1;
 	char intm[11] = {"-2147483648"};
 
-	if (v == int_m)
+	if (v == INT_MIN)
 	{
 		for (x = 0; x <= 10; x++)
 		{
@@ -66,22 +66,22 @@ int print_di(va_list di)
 		}
 		return (count);
 	}
-	if (val < 0)
+	if (v < 0)
 	{
 		_putchar('-');
-		val = -val;
+		v = -v;
 		count++;
 	}
 
-	while ((val / divide) >= 10)
+	while ((v / divide) >= 10)
 	{
 		divide *= 10;
 	}
 
 	while (divide >= 1)
 	{
-		_putchar((val / divide) + '0');
-		val = val % divide;
+		_putchar((v / divide) + '0');
+		v = v % divide;
 		divide /= 10;
 		count++;
 	}
