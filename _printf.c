@@ -9,21 +9,21 @@
 int (*check(const char *format))(va_list)
 {
 	unsigned int j;
-	print_format x[] = {
+	print_format spec_format[] = {
 		{"c", print_c},
-		{"ap", print_s},
+		{"s", print_s},
 		{"d", print_id},
 		{"i", print_id},
 		{NULL, NULL}
 	};
-	for (j = 0; x[j].type != NULL; j++)
+	for (j = 0; spec_format[j].type != NULL; j++)
 	{
-		if (*(x[j].type) == *format)
+		if (*(spec_format[j].type) == *format)
 		{
 			break;
 		}
 	}
-	return (x[j].f);
+	return (spec_format[j].f);
 }
 /**
  * _printf - prints anything
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 	x = 0;
 	while (format[x])
 	{
-		for (x = 0; format[x] != '%' && format[x]; x++)
+		for (x = x; format[x] != '%' && format[x]; x++)
 		{
 			_putchar(format[x]);
 			count++;
@@ -58,10 +58,15 @@ int _printf(const char *format, ...)
 			x += 2;
 			continue;
 		}
-		if (format[x + 1] == '%')
-			x += 2;
-		else
-			x++;
+			if (!format[x + 1])
+				return (-1);
+			_putchar (format[x]);
+			count++;
+
+			if (format[x + 1] == '%')
+				x += 2;
+			else
+				x++;
 	}
 	va_end(ap);
 	return (count);

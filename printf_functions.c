@@ -1,4 +1,5 @@
 #include <stdarg.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -15,7 +16,7 @@ int _putchar(char c)
 /**
  *print_c - prints char to stdout
  *@c: char to print
- *Return: # of chars printed
+ *Return: # of chars rinted
  */
 int print_c(va_list c)
 {
@@ -34,10 +35,10 @@ int print_c(va_list c)
   * @s: string to print
   * Return: number of characters printed
   */
-int print_s(va_list ap)
+int print_s(va_list s)
 {
 	int count;
-	char *str = va_arg(ap, char *);
+	char *str = va_arg(s, char *);
 
 	if (str == NULL)
 	{
